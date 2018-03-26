@@ -62,14 +62,6 @@ return listOfVoices;
 
 }
 public Vote() {
-this.setNameOfVote("Simple voting");
-this.setQuestion("Some question");
-Map<Integer, String> map=new HashMap();
-map.put(1, "yes");
-map.put(2, "no");
-this.setVariantsOfAnswer(map);
-List<Integer> list=new ArrayList();
-this.setListOfVoices(list);
 
 }
  

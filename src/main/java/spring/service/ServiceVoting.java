@@ -18,7 +18,17 @@ Vote vote;
 Statistic statistic;
 
 
-public Vote createVoting() {
+public Vote createVoting(String nameOfVote, String question, String[] variants) {
+	vote.setNameOfVote(nameOfVote);
+	vote.setQuestion(question);
+	Map<Integer, String> map=new HashMap();
+	int j=1;
+	//Add the parameters in the Map of answer's variants
+	for(int i=0;i<variants.length;i++) {
+		map.put(j,variants[i]);
+		j++;
+	}
+	vote.setVariantsOfAnswer(map);
 	return vote;
 }
 public String getNameOfVote() {
@@ -31,6 +41,9 @@ public void startVoting(boolean activity) {
 	System.out.println(vote.getNameOfVote());
 	System.out.println(vote.getQuestion());
 	System.out.println(vote.getVariantsOfAnswer());
+	//Creating of the list where the response's indexes will be stored
+	List<Integer> list = new ArrayList();
+	vote.setListOfVoices(list);
 	}
 public void addVoice(int numberOfVariant) {
 vote.getListOfVoices().add(numberOfVariant);

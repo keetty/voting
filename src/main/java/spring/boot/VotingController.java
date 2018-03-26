@@ -2,6 +2,8 @@ package spring.boot;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +11,7 @@ import org.springframework.http.MediaType;
  import  org.springframework.beans.factory.annotation.Autowired;
  import spring.dto.Vote;
  import spring.service.ServiceVoting;
+ import java.util.*;
 
 
 @RestController
@@ -19,9 +22,10 @@ public class VotingController {
 ServiceVoting serviceVoting;
 
 
- @RequestMapping(value="/start", method = RequestMethod.POST)
-    public Vote createVote()  {
-		return serviceVoting.createVoting();	
+ @RequestMapping(value="/start/{nameOfVote}/{question}", method = RequestMethod.POST)
+    public  Vote createVote(@PathVariable("nameOfVote") String nameOfVote,@PathVariable("question") String question, @RequestParam(value="variant") String[] variants)  {
+		
+		return serviceVoting.createVoting(nameOfVote, question, variants);	
 	}
 	@RequestMapping(value="start/{activity}", method = RequestMethod.GET)
 	public void start(@PathVariable("activity") boolean activity) {
