@@ -23,7 +23,9 @@ public Vote createVoting(String nameOfVote, String question, String[] variants) 
 	vote.setQuestion(question);
 	Map<Integer, String> map=new HashMap();
 	int j=1;
+	
 	//Add the parameters in the Map of answer's variants
+	
 	for(int i=0;i<variants.length;i++) {
 		map.put(j,variants[i]);
 		j++;
@@ -41,12 +43,14 @@ public void startVoting(boolean activity) {
 	System.out.println(vote.getNameOfVote());
 	System.out.println(vote.getQuestion());
 	System.out.println(vote.getVariantsOfAnswer());
-	//Creating of the list where the response's indexes will be stored
+	
+	//Creating of the list where the response's numbers will be stored
+	
 	List<Integer> list = new ArrayList();
 	vote.setListOfVoices(list);
 	}
 public void addVoice(int numberOfVariant) {
-vote.getListOfVoices().add(numberOfVariant);
+	vote.getListOfVoices().add(numberOfVariant);
 }
 
 public void closeVoting(boolean activity) {

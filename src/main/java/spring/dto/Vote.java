@@ -7,7 +7,6 @@ import java.util.*;
 
 
 @Component("vote")
-@JsonAutoDetect
 public class Vote {
 
 
